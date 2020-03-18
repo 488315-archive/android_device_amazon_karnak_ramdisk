@@ -34,7 +34,7 @@ camera.disable_zsl_mode=1
 #
 # BOOTIMAGE_BUILD_PROPERTIES
 #
-ro.bootimage.build.date=Fri Mar 29 07:11:12 UTC 2019
-ro.bootimage.build.date.utc=1553843472
-ro.bootimage.build.fingerprint=Amazon/karnak:6.0/NS6301/1631/N:user/amz-p,release-keys
+ro.bootimage.build.date=Wed Feb 12 02:19:59 UTC 2020
+ro.bootimage.build.date.utc=1581473999
+ro.bootimage.build.fingerprint=Amazon/karnak/karnak:6.0/NS6315/2504N:user/amz-p,release-keys
 

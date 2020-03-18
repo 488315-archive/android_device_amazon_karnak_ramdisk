@@ -149,6 +149,10 @@ window                                    u:object_r:window_service:s0
 *                                         u:object_r:default_android_service:s0
 #line 1 "out/target/product/karnak/obj/ETC/sectxfile_nl_intermediates/sectxfile_nl"
 
+#line 1 "device/amazon/common/sepolicy/mtk/features/gui-ext/service_contexts"
+GuiExtService       u:object_r:guiext-server_service:s0
+#line 1 "out/target/product/karnak/obj/ETC/sectxfile_nl_intermediates/sectxfile_nl"
+
 #line 1 "device/amazon/common/sepolicy/mtk/common/service_contexts"
 # ==============================================
 # MTK Policy Rule
@@ -279,6 +283,10 @@ arcusservice                              u:object_r:arcus_service:s0
 devicemodelinfo                              u:object_r:device_model_info:s0
 #line 1 "out/target/product/karnak/obj/ETC/sectxfile_nl_intermediates/sectxfile_nl"
 
+#line 1 "device/amazon/common/sepolicy/common/fireos/BluetoothPolicyManager/service_contexts"
+BluetoothPolicyService                          u:object_r:bluetoothpolicy_service:s0
+#line 1 "out/target/product/karnak/obj/ETC/sectxfile_nl_intermediates/sectxfile_nl"
+
 #line 1 "device/amazon/common/sepolicy/common/fireos/AmazonWindowManager/service_contexts"
 amazonwindowmanager                              u:object_r:amazonwindowmanager_service:s0
 #line 1 "out/target/product/karnak/obj/ETC/sectxfile_nl_intermediates/sectxfile_nl"
@@ -301,10 +309,6 @@ amazon_media_codec_logger                        u:object_r:mediaserver_service:
 
 #line 1 "device/amazon/common/sepolicy/common/fireos/AmazonUsageStats/service_contexts"
 amazonusagestatsservice                    u:object_r:amazon_usage_stats:s0
-#line 1 "out/target/product/karnak/obj/ETC/sectxfile_nl_intermediates/sectxfile_nl"
-
-#line 1 "device/amazon/common/sepolicy/common/fireos/AudioFx/service_contexts"
-playbackstream                    u:object_r:playbackstream_service:s0
 #line 1 "out/target/product/karnak/obj/ETC/sectxfile_nl_intermediates/sectxfile_nl"
 
 #line 1 "device/amazon/common/sepolicy/common/fireos/AmazonAudioService/service_contexts"

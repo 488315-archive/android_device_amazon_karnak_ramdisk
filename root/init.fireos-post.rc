@@ -35,6 +35,7 @@ on post-fs-data
 
     # Copy console-ramoops to make it accessible by BootReceiver
     copy /sys/fs/pstore/console-ramoops /data/system/console-ramoops
+    copy /sys/fs/pstore/console-ramoops-0 /data/system/console-ramoops
     chmod 0600 /data/system/console-ramoops
     chown system system /data/system/console-ramoops
 

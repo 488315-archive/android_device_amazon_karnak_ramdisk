@@ -57,13 +57,11 @@ on charger
     setprop sys.usb.config charging
 
 on fs
-    write /proc/bootprof "INIT:Mount_START"
     mkdir /dev/block/platform/mtk-msdc.0
     symlink ../soc/11230000.mmc /dev/block/platform/mtk-msdc.0/11230000.MSDC0
     mount_all /fstab.mt8163 --early
     exec /system/bin/resize_ext4 /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/userdata no-key
     mount_all /fstab.mt8163 --late
-    write /proc/bootprof "INIT:Mount_END"
 
 on post-fs
     # Support legacy paths
@@ -166,7 +164,7 @@ on post-fs-data
     chmod 0666 /dev/pmem_multimedia
 
     # watch dog kicker
-    write /proc/wdk "0 20 30"
+    # write /proc/wdk "0 20"
 
     # set ptmx group to non-root
     chown root radio /dev/ptmx
@@ -728,6 +726,14 @@ on boot
     chmod 0660 /sys/kernel/debug/ged/hal/custom_upbound_gpu_freq
     chown system system /sys/kernel/debug/ged/hal/custom_boost_gpu_freq
     chmod 0660 /sys/kernel/debug/ged/hal/custom_boost_gpu_freq
+    chown system system /sys/kernel/debug/ged/hal/custom_dvfs_mode
+    chmod 0660 /sys/kernel/debug/ged/hal/custom_dvfs_mode
+    chown system system /sys/kernel/debug/ged/hal/systrace_gpu_info
+    chmod 0660 /sys/kernel/debug/ged/hal/systrace_gpu_info
+    chown media media /sys/kernel/debug/ged/hal/media_event
+    chmod 0660 /sys/kernel/debug/ged/hal/media_event
+    chmod 0660 /sys/kernel/debug/ged/ge
+    chmod 0660 /sys/kernel/debug/ged/gedlog
 
     # Permission for hibernation
     chown radio system /sys/power/tuxonice
@@ -881,7 +887,7 @@ service ged_srv /vendor/bin/ged_srv
 service nvram_daemon /vendor/bin/nvram_daemon
     class main
     user root
-    group system
+    group system audio net_bt_stack
     oneshot
 
 # DFO (Begin)
@@ -1094,9 +1100,9 @@ service cmmb /system/bin/cmmbsp
 
 service dbus /system/bin/dbus-daemon --system --nofork
     class main
-    socket dbus stream 660 bluetooth bluetooth
-    user bluetooth
-    group bluetooth net_bt_admin
+    socket dbus stream 660 dbus dbus
+    user dbus
+    group dbus net_bt_admin
 
 service bluetoothd /system/bin/bluetoothd -n
     class main

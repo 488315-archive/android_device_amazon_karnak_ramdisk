@@ -6,7 +6,6 @@
    
 on post-fs-data
 
-    write /proc/bootprof "post-fs-data: on modem start"
 
     # Modem related device nodes
     mkdir /data/nvram/md  0770 root system
